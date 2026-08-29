@@ -1,0 +1,76 @@
+@use "../../styles/tokens" as t;
+
+.cta_section {
+  padding: 6rem 0;
+  background: t.$white;
+
+  @include t.mobile {
+    padding: 3.5rem 0;
+  }
+}
+
+.banner_box {
+  background: linear-gradient(135deg, t.$dark-bg 0%, #1e002e 100%);
+  border-radius: t.$radius-lg;
+  padding: 4.5rem 3rem;
+  text-align: center;
+  color: t.$white;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid t.$dark-border;
+
+  @include t.mobile {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .glow {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(170, 0, 255, 0.35) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+
+    @include t.mobile {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-size: 1.15rem;
+    color: #e5e5e5;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+
+    @include t.mobile {
+      font-size: 1rem;
+    }
+  }
+
+  .btn_group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    @include t.mobile {
+      flex-direction: column;
+      width: 100%;
+
+      a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

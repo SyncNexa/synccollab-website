@@ -1,0 +1,337 @@
+@use "../../styles/tokens" as t;
+
+.showcase_section {
+  padding: 6rem 0;
+  background: t.$dark-bg;
+  color: t.$white;
+  overflow: hidden;
+
+  @include t.mobile {
+    padding: 3.5rem 0;
+  }
+}
+
+.header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3rem;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: t.$white;
+    margin: 0.75rem 0 1rem;
+
+    @include t.mobile {
+      font-size: 1.85rem;
+    }
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: t.$text-light;
+    line-height: 1.6;
+  }
+}
+
+.tab_controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: t.$dark-card;
+  border: 1px solid t.$dark-border;
+  padding: 0.35rem;
+  border-radius: t.$radius-full;
+  max-width: 380px;
+  margin: 0 auto 3.5rem;
+
+  @include t.mobile {
+    max-width: 100%;
+  }
+
+  .tab_btn {
+    flex: 1;
+    padding: 0.65rem 1.25rem;
+    border-radius: t.$radius-full;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: t.$text-light;
+    transition: all 0.2s ease;
+
+    &.active {
+      background: t.$primary;
+      color: t.$white;
+    }
+  }
+}
+
+.display_window {
+  max-width: 900px;
+  margin: 0 auto;
+  background: t.$dark-card;
+  border: 1px solid t.$dark-border;
+  border-radius: t.$radius-lg;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+
+  @include t.mobile {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  @include t.tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.demo_visual {
+  display: flex;
+  justify-content: center;
+}
+
+// Swiper Simulation Frame
+.deck_frame {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  height: 440px;
+
+  .card_layer_2 {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    width: 100%;
+    height: 400px;
+    background: #250036;
+    border-radius: 1rem;
+    opacity: 0.4;
+    filter: grayscale(100%);
+    z-index: 1;
+  }
+
+  .card_layer_1 {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    width: 100%;
+    height: 410px;
+    background: #3e0059;
+    border-radius: 1rem;
+    opacity: 0.75;
+    filter: grayscale(100%);
+    z-index: 2;
+  }
+
+  .card_active {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 420px;
+    background: linear-gradient(161deg, #9900e6, #240033);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    img {
+      width: 100%;
+      height: 160px;
+      border-radius: 0.75rem;
+      object-fit: cover;
+    }
+
+    .meta {
+      h4 {
+        color: t.$white;
+        font-size: 1rem;
+        margin: 0.4rem 0 0.15rem;
+      }
+      small {
+        color: #d9d9d9;
+        font-size: 0.72rem;
+      }
+      p {
+        color: #e5e5e5;
+        font-size: 0.78rem;
+        line-height: 1.35;
+        margin: 0.4rem 0;
+      }
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .btn {
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+// Deal Room Simulation Frame
+.deal_room_frame {
+  width: 100%;
+  max-width: 360px;
+  background: #110f1e;
+  border: 1px solid t.$dark-border;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-sizing: border-box;
+
+  .room_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid t.$dark-border;
+    margin-bottom: 1rem;
+
+    .partner {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      h4 {
+        font-size: 0.92rem;
+        color: t.$white;
+      }
+      small {
+        font-size: 0.72rem;
+        color: t.$text-light;
+      }
+    }
+  }
+
+  .escrow_banner {
+    background: rgba(0, 222, 115, 0.12);
+    border: 1px solid rgba(0, 222, 115, 0.3);
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+
+    .top_row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.3rem;
+
+      span {
+        font-size: 0.76rem;
+        font-weight: 700;
+        color: t.$escrow-green;
+      }
+    }
+
+    p {
+      font-size: 0.75rem;
+      color: #c9f5dd;
+      margin: 0;
+    }
+  }
+
+  .chat_stream {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+
+    .msg {
+      max-width: 85%;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.75rem;
+      font-size: 0.78rem;
+
+      &.in {
+        background: #1d1a33;
+        color: #e5e5e5;
+        align-self: flex-start;
+      }
+
+      &.out {
+        background: t.$primary;
+        color: t.$white;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .room_actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+
+    button {
+      padding: 0.5rem;
+      border-radius: t.$radius-sm;
+      font-size: 0.74rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+
+      &.submit {
+        background: #25223d;
+        color: t.$white;
+      }
+
+      &.approve {
+        background: t.$escrow-green;
+        color: #000000;
+      }
+    }
+  }
+}
+
+.demo_desc {
+  h3 {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: t.$white;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-size: 1rem;
+    color: t.$text-light;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+
+    .hl_item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.92rem;
+      color: #e5e5e5;
+    }
+  }
+}

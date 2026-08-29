@@ -1,0 +1,102 @@
+@use "../../styles/tokens" as t;
+
+.testimonials_section {
+  padding: 6rem 0;
+  background: t.$white;
+
+  @include t.mobile {
+    padding: 3.5rem 0;
+  }
+}
+
+.header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 4rem;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: t.$text-dark;
+    margin: 0.75rem 0 1rem;
+
+    @include t.mobile {
+      font-size: 1.85rem;
+    }
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: t.$text-muted;
+    line-height: 1.6;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @include t.mobile {
+    grid-template-columns: 1fr;
+  }
+
+  @include t.tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonial_card {
+  background: t.$off-white;
+  border: 1px solid t.$border;
+  border-radius: t.$radius-lg;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .stars {
+    display: flex;
+    gap: 0.2rem;
+    color: #ffaa00;
+    margin-bottom: 1.25rem;
+  }
+
+  .quote {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: t.$text-dark;
+    margin-bottom: 1.75rem;
+    font-style: italic;
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid t.$border;
+
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: t.$primary-light;
+      object-fit: cover;
+    }
+
+    div {
+      h5 {
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: t.$text-dark;
+      }
+
+      small {
+        font-size: 0.78rem;
+        color: t.$text-muted;
+      }
+    }
+  }
+}

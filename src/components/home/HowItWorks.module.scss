@@ -1,0 +1,104 @@
+@use "../../styles/tokens" as t;
+
+.how_section {
+  padding: 6rem 0;
+  background: t.$white;
+
+  @include t.mobile {
+    padding: 3.5rem 0;
+  }
+}
+
+.header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 4rem;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: t.$text-dark;
+    letter-spacing: -0.02em;
+    margin: 0.75rem 0 1rem;
+
+    @include t.mobile {
+      font-size: 1.85rem;
+    }
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: t.$text-muted;
+    line-height: 1.6;
+  }
+}
+
+.steps_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @include t.mobile {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @include t.tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.step_card {
+  background: t.$off-white;
+  border: 1px solid t.$border;
+  border-radius: t.$radius-lg;
+  padding: 2.25rem 2rem;
+  position: relative;
+
+  .step_number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(170, 0, 255, 0.12);
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    line-height: 1;
+  }
+
+  .icon_circle {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+
+    &.purple {
+      background: t.$primary-light;
+      color: t.$primary;
+    }
+    &.green {
+      background: t.$escrow-light;
+      color: t.$escrow-dark;
+    }
+    &.orange {
+      background: t.$orange-light;
+      color: t.$orange;
+    }
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: t.$text-dark;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: 0.94rem;
+    color: t.$text-muted;
+    line-height: 1.55;
+  }
+}

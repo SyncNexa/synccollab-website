@@ -1,0 +1,315 @@
+@use "../../styles/tokens" as t;
+
+.hero {
+  position: relative;
+  padding: 5rem 0 4rem;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 0%, rgba(170, 0, 255, 0.05) 0%, transparent 60%);
+
+  @include t.mobile {
+    padding: 3rem 0 2rem;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+
+  @include t.mobile {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  @include t.tablet {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.text_col {
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: t.$primary;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.01em;
+
+    .sparkle_icon {
+      color: t.$primary;
+    }
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: t.$text-dark;
+    margin-bottom: 1.25rem;
+
+    @include t.mobile {
+      font-size: 2.35rem;
+    }
+
+    @include t.tablet {
+      font-size: 3rem;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, t.$primary 0%, #d800ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  p {
+    font-size: 1.12rem;
+    line-height: 1.6;
+    color: t.$text-muted;
+    margin-bottom: 2rem;
+    max-width: 540px;
+
+    @include t.mobile {
+      font-size: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .cta_group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+
+    @include t.mobile {
+      flex-direction: column;
+      width: 100%;
+
+      a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .trust_stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid t.$border;
+
+    @include t.mobile {
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .stat_item {
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: t.$text-dark;
+        letter-spacing: -0.02em;
+      }
+
+      span {
+        font-size: 0.8rem;
+        color: t.$text-muted;
+      }
+    }
+  }
+}
+
+// Visual Preview Card Stack
+.visual_col {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mock_deck {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 480px;
+
+  .mock_card_back {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.92);
+    width: 100%;
+    height: 440px;
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, #1e002e, #0e0018);
+    opacity: 0.5;
+    filter: grayscale(100%);
+    z-index: 1;
+  }
+
+  .mock_card_front {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 460px;
+    border-radius: 1.25rem;
+    background: linear-gradient(161deg, #9e00eb, #1f002b);
+    padding: 1.2rem;
+    box-sizing: border-box;
+    color: t.$white;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .card_cover {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      border-radius: 0.85rem;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .budget_pill {
+        position: absolute;
+        top: 0.6rem;
+        left: 0.6rem;
+        background: t.$escrow-green;
+        color: #000000;
+        padding: 0.25rem 0.65rem;
+        border-radius: t.$radius-full;
+        font-size: 0.85rem;
+        font-weight: 800;
+      }
+
+      .delivery_pill {
+        position: absolute;
+        top: 0.6rem;
+        right: 0.6rem;
+        background: rgba(0, 0, 0, 0.65);
+        color: t.$white;
+        backdrop-filter: blur(4px);
+        padding: 0.25rem 0.55rem;
+        border-radius: t.$radius-full;
+        font-size: 0.7rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+    }
+
+    .card_info {
+      padding: 0.6rem 0;
+
+      .title_row {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+      }
+
+      small {
+        color: #d9d9d9;
+        font-size: 0.74rem;
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+
+      p {
+        font-size: 0.82rem;
+        color: #e5e5e5;
+        line-height: 1.35;
+        margin-bottom: 0.5rem;
+      }
+
+      .skills {
+        font-size: 0.76rem;
+        color: #d9d9d9;
+
+        span {
+          color: t.$orange;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .mock_actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .mock_btn {
+        width: 2.6rem;
+        height: 2.6rem;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  // Floating Escrow Deal Room Snippet
+  .floating_escrow_badge {
+    position: absolute;
+    bottom: -15px;
+    right: -20px;
+    background: t.$white;
+    color: t.$text-dark;
+    border: 1px solid t.$border;
+    padding: 0.75rem 1rem;
+    border-radius: t.$radius-md;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 20;
+
+    @include t.mobile {
+      right: 0;
+      bottom: -20px;
+    }
+
+    .escrow_icon_wrap {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: t.$escrow-light;
+      color: t.$escrow-dark;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .escrow_text {
+      h5 {
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin-bottom: 0.1rem;
+      }
+      span {
+        font-size: 0.72rem;
+        color: t.$escrow-dark;
+        font-weight: 600;
+      }
+    }
+  }
+}

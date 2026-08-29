@@ -1,0 +1,115 @@
+@use "../../styles/tokens" as t;
+
+.footer {
+  background: t.$dark-bg;
+  color: t.$white;
+  padding: 5rem 0 2.5rem;
+  margin-top: auto;
+  border-top: 1px solid t.$dark-border;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid t.$dark-border;
+
+  @include t.mobile {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @include t.tablet {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.brand_col {
+  .brand_row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: t.$white;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: t.$text-light;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    max-width: 320px;
+    margin-bottom: 1.5rem;
+  }
+
+  .badge_pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(0, 222, 115, 0.12);
+    color: t.$escrow-green;
+    padding: 0.35rem 0.75rem;
+    border-radius: t.$radius-full;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+}
+
+.col {
+  h4 {
+    color: t.$white;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    a {
+      color: t.$text-light;
+      font-size: 0.88rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: t.$primary;
+      }
+    }
+  }
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  font-size: 0.84rem;
+  color: t.$text-light;
+
+  @include t.mobile {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .socials {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+
+    a {
+      color: t.$text-light;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: t.$primary;
+      }
+    }
+  }
+}

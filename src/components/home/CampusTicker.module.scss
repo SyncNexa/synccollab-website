@@ -1,0 +1,51 @@
+@use "../../styles/tokens" as t;
+
+.ticker_section {
+  padding: 2.5rem 0;
+  border-top: 1px solid t.$border;
+  border-bottom: 1px solid t.$border;
+  background: t.$off-white;
+  overflow: hidden;
+}
+
+.heading {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: t.$text-muted;
+  margin-bottom: 1.5rem;
+}
+
+.ticker_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  @include t.mobile {
+    gap: 0.75rem;
+  }
+}
+
+.campus_badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: t.$white;
+  border: 1px solid t.$border;
+  padding: 0.6rem 1.15rem;
+  border-radius: t.$radius-full;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: t.$text-dark;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: t.$escrow-green;
+  }
+}
